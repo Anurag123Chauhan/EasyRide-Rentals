@@ -9,7 +9,7 @@ if(!isset($_SESSION['login_customer'])){
 ?> 
 <title>Book Car </title>
 <head>
-    <script type="text/javascript" src="assets/ajs/angular.min.js"> </script>
+    <script type="text/javascript" src="assets/ajs/angular.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="shortcut icon" type="image/png" href="assets/img/P.png.png">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -17,8 +17,8 @@ if(!isset($_SESSION['login_customer'])){
     <link rel="stylesheet" href="assets/w3css/w3.css">
   <script type="text/javascript" src="assets/js/jquery.min.js"></script>
   <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>  
-  <script type="text/javascript" src="assets/js/custom.js"></script> 
- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/clientpage.css" />
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+ <link rel="stylesheet" type="text/css" media="screen" href="assets/css/clientpage.css"/>
 </head>
 <body ng-app=""> 
 
