@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2021 at 04:49 PM
--- Server version: 5.6.21
--- PHP Version: 7.4.12
+-- Generation Time: Nov 13, 2024 at 01:01 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `carrentalp`
@@ -26,8 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `cars`
 --
 
-CREATE TABLE IF NOT EXISTS `cars` (
-`car_id` int(20) NOT NULL,
+CREATE TABLE `cars` (
+  `car_id` int(20) NOT NULL,
   `car_name` varchar(50) NOT NULL,
   `car_nameplate` varchar(50) NOT NULL,
   `car_img` varchar(50) DEFAULT 'NA',
@@ -36,26 +37,26 @@ CREATE TABLE IF NOT EXISTS `cars` (
   `ac_price_per_day` float NOT NULL,
   `non_ac_price_per_day` float NOT NULL,
   `car_availability` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `cars`
 --
 
 INSERT INTO `cars` (`car_id`, `car_name`, `car_nameplate`, `car_img`, `ac_price`, `non_ac_price`, `ac_price_per_day`, `non_ac_price_per_day`, `car_availability`) VALUES
-(1, 'Audi A4', 'GA3KA6969', 'assets/img/cars/audi-a4.jpg', 36, 26, 5200, 2600, 'yes'),
+(1, 'AltoVXI', 'GA3KA6969', 'assets/img/cars/alto.webp', 20, 15, 2200, 1200, 'yes'),
 (2, 'Hyundai Creta', 'BA2CH2020', 'assets/img/cars/creta.jpg', 22, 12, 2900, 1400, 'yes'),
 (3, 'BMW 6-Series', 'BA10PA5555', 'assets/img/cars/bmw6.jpg', 39, 30, 6950, 5999, 'yes'),
 (4, 'Mercedes-Benz E-Class', 'BA10CH6009', 'assets/img/cars/mcec.jpg', 45, 30, 7200, 5200, 'yes'),
 (6, 'Ford EcoSport', 'GA4PA2587', 'assets/img/cars/ecosport.png', 21, 13, 3890, 2600, 'yes'),
 (7, 'Honda Amaze', 'PJ16YX8820', 'assets/img/cars/amaze.png', 14, 12, 2800, 2400, 'no'),
-(8, 'Land Rover Range Rover Sport', 'GA5KH9669', 'assets/img/cars/rangero.jpg', 36, 26, 6000, 4600, 'yes'),
+(8, 'Tata Altroz', 'GA5KH9669', 'assets/img/cars/altroz.jpg', 21, 16, 2500, 1600, 'yes'),
 (9, 'MG Hector', 'GA6PA6666', 'assets/img/cars/mghector.jpg', 20, 12, 2900, 1400, 'yes'),
 (10, 'Honda CR-V', 'TN17MS1997', 'assets/img/cars/hondacr.jpg', 22, 15, 2850, 1400, 'yes'),
 (11, 'Mahindra XUV 500', 'KA12EX1883', 'assets/img/cars/Mahindra XUV.jpg', 15, 13, 3000, 2600, 'yes'),
 (12, 'Toyota Fortuner', 'GA08MX1997', 'assets/img/cars/Fortuner.png', 16, 14, 3200, 2800, 'yes'),
-(13, 'Hyundai Veloster', 'BA20PA5685', 'assets/img/cars/hyundai0.png', 23, 15, 4500, 3500, 'yes'),
-(14, 'Jaguar XF', 'GA8KH8866', 'assets/img/cars/jaguarxf.jpg', 39, 29, 6100, 4380, 'yes');
+(13, 'Hyundai i20', 'BA20PA5685', 'assets/img/cars/hi20.jpg', 23, 15, 4500, 3500, 'yes'),
+(14, 'Tata Nexon', 'GA8KH8866', 'assets/img/cars/nexon.jpg', 31, 26, 5100, 3880, 'yes');
 
 -- --------------------------------------------------------
 
@@ -63,10 +64,10 @@ INSERT INTO `cars` (`car_id`, `car_name`, `car_nameplate`, `car_img`, `ac_price`
 -- Table structure for table `clientcars`
 --
 
-CREATE TABLE IF NOT EXISTS `clientcars` (
+CREATE TABLE `clientcars` (
   `car_id` int(20) NOT NULL,
   `client_username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `clientcars`
@@ -93,14 +94,14 @@ INSERT INTO `clientcars` (`car_id`, `client_username`) VALUES
 -- Table structure for table `clients`
 --
 
-CREATE TABLE IF NOT EXISTS `clients` (
+CREATE TABLE `clients` (
   `client_username` varchar(50) NOT NULL,
   `client_name` varchar(50) NOT NULL,
   `client_phone` varchar(15) NOT NULL,
   `client_email` varchar(25) NOT NULL,
   `client_address` varchar(50) CHARACTER SET utf8 COLLATE utf8_estonian_ci NOT NULL,
   `client_password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `clients`
@@ -117,14 +118,14 @@ INSERT INTO `clients` (`client_username`, `client_name`, `client_phone`, `client
 -- Table structure for table `customers`
 --
 
-CREATE TABLE IF NOT EXISTS `customers` (
+CREATE TABLE `customers` (
   `customer_username` varchar(50) NOT NULL,
   `customer_name` varchar(50) NOT NULL,
   `customer_phone` varchar(15) NOT NULL,
   `customer_email` varchar(25) NOT NULL,
   `customer_address` varchar(50) NOT NULL,
   `customer_password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `customers`
@@ -143,8 +144,8 @@ INSERT INTO `customers` (`customer_username`, `customer_name`, `customer_phone`,
 -- Table structure for table `driver`
 --
 
-CREATE TABLE IF NOT EXISTS `driver` (
-`driver_id` int(20) NOT NULL,
+CREATE TABLE `driver` (
+  `driver_id` int(20) NOT NULL,
   `driver_name` varchar(50) NOT NULL,
   `dl_number` varchar(50) NOT NULL,
   `driver_phone` varchar(15) NOT NULL,
@@ -152,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `driver_gender` varchar(10) NOT NULL,
   `client_username` varchar(50) NOT NULL,
   `driver_availability` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `driver`
@@ -174,11 +175,11 @@ INSERT INTO `driver` (`driver_id`, `driver_name`, `dl_number`, `driver_phone`, `
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `feedback` (
+CREATE TABLE `feedback` (
   `name` varchar(20) NOT NULL,
   `e_mail` varchar(30) NOT NULL,
   `message` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `feedback`
@@ -193,8 +194,8 @@ INSERT INTO `feedback` (`name`, `e_mail`, `message`) VALUES
 -- Table structure for table `rentedcars`
 --
 
-CREATE TABLE IF NOT EXISTS `rentedcars` (
-`id` int(100) NOT NULL,
+CREATE TABLE `rentedcars` (
+  `id` int(100) NOT NULL,
   `customer_username` varchar(50) NOT NULL,
   `car_id` int(20) NOT NULL,
   `driver_id` int(20) NOT NULL,
@@ -208,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `rentedcars` (
   `no_of_days` int(50) DEFAULT NULL,
   `total_amount` double DEFAULT NULL,
   `return_status` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=574681260 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `rentedcars`
@@ -238,37 +239,44 @@ INSERT INTO `rentedcars` (`id`, `customer_username`, `car_id`, `driver_id`, `boo
 -- Indexes for table `cars`
 --
 ALTER TABLE `cars`
- ADD PRIMARY KEY (`car_id`), ADD UNIQUE KEY `car_nameplate` (`car_nameplate`);
+  ADD PRIMARY KEY (`car_id`),
+  ADD UNIQUE KEY `car_nameplate` (`car_nameplate`);
 
 --
 -- Indexes for table `clientcars`
 --
 ALTER TABLE `clientcars`
- ADD PRIMARY KEY (`car_id`), ADD KEY `client_username` (`client_username`);
+  ADD PRIMARY KEY (`car_id`),
+  ADD KEY `client_username` (`client_username`);
 
 --
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
- ADD PRIMARY KEY (`client_username`);
+  ADD PRIMARY KEY (`client_username`);
 
 --
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
- ADD PRIMARY KEY (`customer_username`);
+  ADD PRIMARY KEY (`customer_username`);
 
 --
 -- Indexes for table `driver`
 --
 ALTER TABLE `driver`
- ADD PRIMARY KEY (`driver_id`), ADD UNIQUE KEY `dl_number` (`dl_number`), ADD KEY `client_username` (`client_username`);
+  ADD PRIMARY KEY (`driver_id`),
+  ADD UNIQUE KEY `dl_number` (`dl_number`),
+  ADD KEY `client_username` (`client_username`);
 
 --
 -- Indexes for table `rentedcars`
 --
 ALTER TABLE `rentedcars`
- ADD PRIMARY KEY (`id`), ADD KEY `customer_username` (`customer_username`), ADD KEY `car_id` (`car_id`), ADD KEY `driver_id` (`driver_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer_username` (`customer_username`),
+  ADD KEY `car_id` (`car_id`),
+  ADD KEY `driver_id` (`driver_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -278,17 +286,20 @@ ALTER TABLE `rentedcars`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-MODIFY `car_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `car_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `driver`
 --
 ALTER TABLE `driver`
-MODIFY `driver_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `driver_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `rentedcars`
 --
 ALTER TABLE `rentedcars`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=574681260;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=574681260;
+
 --
 -- Constraints for dumped tables
 --
@@ -297,22 +308,23 @@ MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=574681260;
 -- Constraints for table `clientcars`
 --
 ALTER TABLE `clientcars`
-ADD CONSTRAINT `clientcars_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`),
-ADD CONSTRAINT `clientcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`);
+  ADD CONSTRAINT `clientcars_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`),
+  ADD CONSTRAINT `clientcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`);
 
 --
 -- Constraints for table `driver`
 --
 ALTER TABLE `driver`
-ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`);
+  ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`);
 
 --
 -- Constraints for table `rentedcars`
 --
 ALTER TABLE `rentedcars`
-ADD CONSTRAINT `rentedcars_ibfk_1` FOREIGN KEY (`customer_username`) REFERENCES `customers` (`customer_username`),
-ADD CONSTRAINT `rentedcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`),
-ADD CONSTRAINT `rentedcars_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`);
+  ADD CONSTRAINT `rentedcars_ibfk_1` FOREIGN KEY (`customer_username`) REFERENCES `customers` (`customer_username`),
+  ADD CONSTRAINT `rentedcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`),
+  ADD CONSTRAINT `rentedcars_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
